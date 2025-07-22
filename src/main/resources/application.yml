@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: Ashutosh1503k
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -16,7 +16,7 @@ spring:
 
   web:
     resources:
-      static-locations: file:./uploads/
+      static-locations: file:${APPLICATION_FILE_UPLOADS_MEDIA_OUTPUT_PATH}
 
 springdoc:
   default-produces-media-type: application/json
@@ -24,8 +24,8 @@ springdoc:
 application:
   file:
     uploads:
-      media-output-path: ./uploads
+      media-output-path: ${APPLICATION_FILE_UPLOADS_MEDIA_OUTPUT_PATH}
 
   jwt:
-    secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXotYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXotMTIzNDU2Nzg5
-    expiration: 36000000 # (e.g. 10 hours in milliseconds)
+    secret: ${APPLICATION_JWT_SECRET}
+    expiration: ${APPLICATION_JWT_EXPIRATION}
