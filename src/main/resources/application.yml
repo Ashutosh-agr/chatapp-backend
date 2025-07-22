@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Ashutosh1503k
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+
+  web:
+    resources:
+      static-locations: file:./uploads/
+
+springdoc:
+  default-produces-media-type: application/json
+
+application:
+  file:
+    uploads:
+      media-output-path: ./uploads
+
+  jwt:
+    secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXotYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXotMTIzNDU2Nzg5
+    expiration: 36000000 # (e.g. 10 hours in milliseconds)
