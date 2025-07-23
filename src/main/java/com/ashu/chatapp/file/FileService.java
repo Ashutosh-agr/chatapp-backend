@@ -19,6 +19,9 @@ public class FileService {
     @Value("${application.file.uploads.media-output-path}")
     private String fileUploadPath;
 
+    @Value("${application.base-url}") 
+    private String baseUrl;
+
     public SavedFile saveFile(@NonNull MultipartFile sourceFile, @NonNull String userId) {
         String fileExtension = getFileExtension(sourceFile.getOriginalFilename());
         String fileName = System.currentTimeMillis() + fileExtension;
@@ -28,7 +31,7 @@ public class FileService {
             Files.createDirectories(fullPath.getParent());
             Files.write(fullPath, sourceFile.getBytes());
 
-            String fileUrl = "http://localhost:8080/uploads/users/" + userId + "/" + fileName;
+            String fileUrl = baseUrl + "/uploads/users/" + userId + "/" + fileName;
 
             log.info("File saved to path: {}", fileUrl);
             return new SavedFile(fullPath.toString(), fileUrl);
