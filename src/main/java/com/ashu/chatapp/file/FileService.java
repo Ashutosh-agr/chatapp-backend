@@ -19,7 +19,7 @@ public class FileService {
     @Value("${application.file.uploads.media-output-path}")
     private String fileUploadPath;
 
-    @Value("${application.base-url}") 
+    @Value("${application.file.base-url}") 
     private String baseUrl;
 
     public SavedFile saveFile(@NonNull MultipartFile sourceFile, @NonNull String userId) {
