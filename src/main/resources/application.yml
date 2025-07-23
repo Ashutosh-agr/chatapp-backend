@@ -25,7 +25,7 @@ application:
   file:
     uploads:
       media-output-path: ${APPLICATION_FILE_UPLOADS_MEDIA_OUTPUT_PATH}
-    base-url: https://chatapp-backend-dzp2.onrender.com
+    base-url: ${BASE_URL}
 
   jwt:
     secret: ${APPLICATION_JWT_SECRET}
